@@ -8,8 +8,8 @@ let userMessage = null;
 let isResponseGenerating = false;
 
 // API configuration
-const YOUR_API_KEY = "AIzaSyDfWk1C74ah8h0jz2ofdFos1Df_dt_dRF0";
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${YOUR_API_KEY}`;
+const MY_API_KEY = "AIzaSyDfWk1C74ah8h0jz2ofdFos1Df_dt_dRF0";
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${MY_API_KEY}`;
 
 const loadLocalStorageData = () => {
     const saveChats = localStorage.getItem("saveChats");
