@@ -146,12 +146,14 @@ display: none;}
     background-color: var(--secondary-color);
 }
 .chat-list .loading-indicator{
-    display: flex;
+    display: none;
     flex-direction: column;
     width: 100%;
     gap: 0.8rem;
 }
-
+.chat-list .message.loading .loading-indicator{
+    display: flex;
+}
 
 .chat-list .loading-indicator .loading-bar{
     width: 100%;
