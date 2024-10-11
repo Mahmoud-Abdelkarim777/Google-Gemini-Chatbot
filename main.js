@@ -4,8 +4,9 @@ const suggestions = document.querySelectorAll(".suggestion-list .suggestion");
 const toggleThemeButton = document.querySelector("#toggle-theme-button");
 const deleteChatButton = document.querySelector("#delete-chat-button");
 
-let userMessage = null;
-let isResponseGenerating = false;
+let userMessage = null; // Initializes to store empty value at the beginning.
+
+let isResponseGenerating = false; //  API response is currently being fetched empty
 
 // API configuration
 const MY_API_KEY = "AIzaSyDfWk1C74ah8h0jz2ofdFos1Df_dt_dRF0";
@@ -14,7 +15,6 @@ const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-
 const loadLocalStorageData = () => {
     const saveChats = localStorage.getItem("saveChats");
     const isLightMode = (localStorage.getItem("themeColor") === "light_mode");
-    
     // apply the stored theme color
     document.body.classList.toggle("light_mode", isLightMode);
     toggleThemeButton.innerHTML = isLightMode ? "dark_mode" : "light_mode";
@@ -73,7 +73,6 @@ const generatAPIResponse = async (incomingMessageDiv) => {
                 }]
             })
         });
-
         const data = await response.json();
         if (!response.ok) throw new Error(data.error.message);
         // get the API response text and remove asterisks from it
@@ -150,7 +149,7 @@ suggestions.forEach(suggestion =>{
         handleOutgoingChat();
     });
 });
-// toogglr between light and dark theme 
+// toggle between light and dark theme 
 toggleThemeButton.addEventListener ("click", () =>{
     const isLightMode = document.body.classList.toggle("light_mode");
     localStorage.setItem("themeColor", isLightMode ? "light_mode" : "dark_mode");
